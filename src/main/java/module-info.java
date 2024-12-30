@@ -6,4 +6,11 @@ module com.newyear.storemanagement {
 
     opens com.newyear.storemanagement to javafx.fxml;
     exports com.newyear.storemanagement;
+
+    opens Controllers to javafx.fxml, java.base;
+    exports Controllers;
+
+    opens Model to javafx.fxml, java.base;
+    exports Model;
+
 }
