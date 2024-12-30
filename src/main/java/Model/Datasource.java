@@ -63,7 +63,7 @@ public class Datasource extends Product {
 
     public boolean open() {
         try {
-            conn = DriverManager.getConnection(CONNECTION_STRING);
+            conn = DriverManager.getConnection(CONNECTION_STRING, User, Password);
             return true;
         } catch (SQLException e) {
             System.out.println("Couldn't connect to database: " + e.getMessage());
