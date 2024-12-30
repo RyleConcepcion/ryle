@@ -9,7 +9,7 @@ public class Datasource extends Product {
 
     public static final String DB_NAME = "store_management";
 
-    public static final String CONNECTION_STRING = "jdbc:mariadb:C:\\xampp\\mysql\\data" + DB_NAME;
+    public static final String CONNECTION_STRING = "jdbc:mysql://localhost:3306/" + DB_NAME;
 
     private String User = "root";
     private String Password = "";
