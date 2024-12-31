@@ -13,10 +13,10 @@ public class UserSessionController {
 
     private UserSessionController() { }
 
+
     public static UserSessionController getInstance() {
         return instance;
     }
-
 
     public static String getUserFullName() {
         return userFullName;
@@ -44,6 +44,7 @@ public class UserSessionController {
 
     public static void setUserFullName(String userFullName) {
         UserSessionController.userFullName = userFullName;
+
     }
 
     public static void setUserName(String userName) {
@@ -67,7 +68,12 @@ public class UserSessionController {
     }
 
     public static void cleanUserSession() {
-
+        userId = 0;
+        userFullName = null;
+        userName = null;
+        userEmail = null;
+        userAdmin = 0;
+        userStatus = null;
     }
 
 }

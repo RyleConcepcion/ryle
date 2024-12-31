@@ -12,5 +12,9 @@ module com.newyear.storemanagement {
 
     opens Model to javafx.fxml, java.base;
     exports Model;
+    exports Controllers.Admin;
+    opens Controllers.Admin to java.base, javafx.fxml;
+    exports Controllers.User;
+    opens Controllers.User to java.base, javafx.fxml;
 
 }

@@ -487,7 +487,7 @@ public class Datasource extends Product {
         User user = new User();
         if (results.next()) {
 
-            user.setId(results.getInt("id"));
+            user.setId(results.getInt("users_id"));
             user.setFullname(results.getString("fullname"));
             user.setUsername(results.getString("username"));
             user.setEmail(results.getString("email"));

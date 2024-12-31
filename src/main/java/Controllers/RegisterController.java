@@ -37,7 +37,7 @@ public class RegisterController {
         Node node = (Node) actionEvent.getSource();
         dialogStage = (Stage) node.getScene().getWindow();
         dialogStage.close();
-        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/view/login.fxml")));
+        Scene scene = new Scene(FXMLLoader.load(getClass().getResource("/Fxml/login.fxml")));
         dialogStage.setScene(scene);
         dialogStage.show();
     }
@@ -132,13 +132,13 @@ public class RegisterController {
                     dialogStage.close();
                     if (user.getAdmin() == 0) {
                         try {
-                            scene = new Scene(FXMLLoader.load(getClass().getResource("../view/user/main-dashboard.fxml")));
+                            scene = new Scene(FXMLLoader.load(getClass().getResource("/Fxml/User/mainDashboard.fxml")));
                         } catch (IOException ioException) {
                             ioException.printStackTrace();
                         }
                     } else if (user.getAdmin() == 1) {
                         try {
-                            scene = new Scene(FXMLLoader.load(getClass().getResource("../view/admin/main-dashboard.fxml")));
+                            scene = new Scene(FXMLLoader.load(getClass().getResource("/Fxml/User/mainDashboard.fxml")));
                         } catch (IOException ioException) {
                             ioException.printStackTrace();
                         }

@@ -6,29 +6,25 @@ import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-
 public class Main extends Application {
+
+    private static Stage primaryStage; // To manage scenes globally
 
     private UserSessionController Datasource;
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/Fxml/login.fxml"));
-        primaryStage.setTitle("Store Management System");
-        //primaryStage.getIcons().add(new Image("/view/resources/img/brand/fav.png"));
-        primaryStage.setScene(new Scene(root, 1280, 800));
-        primaryStage.show();
-
+    public void start(Stage stage) throws Exception {
+        primaryStage = stage; // Assign the primary stage
+        setScene("/Fxml/login.fxml", "Store Management System", 1280, 800); // Load the initial scene
     }
 
     @Override
     public void init() throws Exception {
         super.init();
-        if(!Model.Datasource.getInstance().open()) {
-            System.out.println("FATAL ERROR: Couldn't connect to database");
+        if (!Model.Datasource.getInstance().open()) {
+            System.out.println("FATAL ERROR: Couldn't connect to the database");
             Platform.exit();
         }
     }
@@ -37,6 +33,18 @@ public class Main extends Application {
     public void stop() throws Exception {
         super.stop();
         Model.Datasource.getInstance().close();
+    }
+
+    public static void setScene(String fxmlPath, String title, int width, int height) {
+        try {
+            Parent root = FXMLLoader.load(Main.class.getResource(fxmlPath));
+            Scene scene = new Scene(root, width, height);
+            primaryStage.setTitle(title);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     public static void main(String[] args) {
